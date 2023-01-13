@@ -19,7 +19,8 @@ function interface () {
 #vérifie l'entrée de l utilisateur
 function validiteEntree () {
 	#	0-> nombre entier 1-> n importe quoi d'autre
-	[[ $input =~ [^[:digit:]] ]] &&  return 1 || return 0;
+	[[ $input =~ [^[:digit:]] ]] &&  return 1;
+	[[ $input > 0 ]] && return 0;
 	return 2;
 }
 
