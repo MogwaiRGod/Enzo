@@ -1,4 +1,4 @@
-*#!/bin/bash
+#!/bin/bash
 
 ### UTILISATION
 ## Appuyer sur (ENTREE) (champ vide) pour quitter l'interface
