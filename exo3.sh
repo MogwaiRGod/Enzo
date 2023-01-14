@@ -58,7 +58,7 @@ function validiteEntree () {
 }
 
 function plusGdNbTab () {
-	plus_grand=0;
+	plus_grand=${tab_uti[0]};
 	for i in ${tab_uti[@]}; do
 		[ $i -gt $plus_grand ] && plus_grand=$i;
 	done
