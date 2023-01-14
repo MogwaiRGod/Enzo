@@ -5,7 +5,7 @@
 
 
 
-#vérifie l'entrée de l utilisateur // peut-être un nombre négatif
+#vérifie l'entrée de l utilisateur 
 function validiteEntree () {
 	# 0-> nombre entier positif  1-> n importe quoi d'autre
 	[[  $1 =~ [^[:digit:]] ]] && return 1 || return 0;
