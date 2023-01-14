@@ -19,8 +19,9 @@ function interface () {
 #vérifie l'entrée de l utilisateur
 function validiteEntree () {
 	#	0-> nombre entier 1-> n importe quoi d'autre
-	[[ $input =~ ^[^[:digit:]*]$ ]] &&  return 1 || return 0; #### /!\ erreur si flottants; valide même si commence par un autre caractère que chiffre; ne retourne rien si négatif; erreur si autre caractère après chiffre
-#	[[ $input > 0 ]] && return 0;
+	[[ $input =~ ^[^[:digit:]*]$ ]] &&  return 1 || return 0; #### /!\ erreur si flottants; valide même si commence par un autre caractère que chiffre; 
+									######### ne retourne rien si négatif;
+								##### erreur si autre caractère après chiffre
 	return 2;
 }
 
