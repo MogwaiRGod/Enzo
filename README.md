@@ -14,3 +14,6 @@ Script avec interface utilisateur qui renvoie le nombres de voyelles d'une chaî
 
 ## exo3.sh
 Script avec interface utilisateur qui renvoie le plus grand nombre d'un tableau entré par l'utilisateur.
+
+## exo4.sh
+Pour un nombre entier entré par l'utilisateur, renvoie la somme des chiffres qui composent ce nombre.
