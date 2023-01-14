@@ -40,7 +40,7 @@ function plusGdNbTab () {
 
 function verifTab () {
 	local -n tab=$1;
-	if [[ ${tab[@]} = 0 ]]; then
+	if [[ ${#tab[@]} = 0 ]]; then
 		echo "Le tableau est vide."; sleep 1;
 		return 1;
 	else
