@@ -17,3 +17,9 @@ Script avec interface utilisateur qui renvoie le plus grand nombre d'un tableau 
 
 ## exo4.sh
 Pour un nombre entier entré par l'utilisateur, renvoie la somme des chiffres qui composent ce nombre.
+
+## exo5_v_courte.sh
+Fonction qui détermine si deux chaînes sont des anagrammes (= trie les caractères des chaînes par ordre alphabétique puis vérifie que les deux chaînes obtenues sont identiques).
+
+## exo5.sh
+Même chose mais passe par plusieurs étapes.
