@@ -14,6 +14,42 @@ function initVariables (){
 	return 0;
 }
 
+#vérifie l'entrée de l utilisateur // peut-être un nombre négatif
+function validiteEntree () {
+
+	#	0-> nombre entier positif ou négatif  1-> n importe quoi d'autre
+
+	tmp=$(echo $1 | grep [[:alpha:]]);
+	if [[  $1 =~ ^["-"?[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
+		[[ $tmp != "" ]] && return 1;
+		return 0;
+	else
+		return 1;
+	fi
+	return 2;
+}
+
+function plusGdNbTab () {
+	local -n tab=$1;
+	plus_grand=${tab[0]};
+	for i in ${tab[@]}; do
+		[ $i -gt $plus_grand ] && plus_grand=$i;
+	done
+	return 3;
+}
+
+function verifTab () {
+	local -n tab=$1;
+	if [[ ${tab[@]} = 0 ]]; then
+		echo "Le tableau est vide."; sleep 1;
+		return 1;
+	else
+		return 0;
+	fi
+	return 4;
+}
+
+
 function interface () {
 	initVariables;
 
@@ -38,45 +74,13 @@ function interface () {
 	done
 
 	# si le tableau est validé mais est vide -> renvoyer une erreur
-	verifTab;
-	[[ $? = 1 ]] && interface || plusGdNbTab; echo $plus_grand;
+	verifTab tab_uti;
+	[[ $? = 1 ]] && interface || plusGdNbTab tab_uti; echo $plus_grand;
 
 }
 
-#vérifie l'entrée de l utilisateur // peut-être un nombre négatif
-function validiteEntree () {
 
-	#	0-> nombre entier positif ou négatif  1-> n importe quoi d'autre
-
-	tmp=$(echo $input | grep [[:alpha:]]);
-	if [[  $input =~ ^["-"?[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
-		[[ $tmp != "" ]] && return 1;
-		return 0;
-	else
-		return 1;
-	fi
-	return 2;
-}
-
-function plusGdNbTab () {
-	plus_grand=${tab_uti[0]};
-	for i in ${tab_uti[@]}; do
-		[ $i -gt $plus_grand ] && plus_grand=$i;
-	done
-	return 3;
-}
-
-function verifTab () {
-	if [[ ${#tab_uti[@]} = 0 ]]; then
-		echo "Le tableau est vide."; sleep 1;
-		return 1;
-	else
-		return 0;
-	fi
-	return 4;
-}
-
-#################" LE SCRIPT
+################## LE SCRIPT
 
 while [ true ]; do
 	interface;
