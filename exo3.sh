@@ -2,6 +2,7 @@
 
 ### UTILISATION
 ## Entrer les nombres les uns après les autres; appuyer sur entrée pour valider chaque item
+## On peut aussi les entrer dans la même ligne si on les sépare d'un espace
 ## Entrer (T) pour valider le tableau
 ## Appuyer sur (ENTREE) (champ vide) pour quitter l'interface
 
@@ -48,7 +49,7 @@ function validiteEntree () {
 	#	0-> nombre entier positif ou négatif  1-> n importe quoi d'autre
 
 	tmp=$(echo $input | grep [[:alpha:]]);
-	if [[  $input =~ ^["-"?[:digit:]] ]]; then
+	if [[  $input =~ ^["-"?[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
 		[[ $tmp != "" ]] && return 1;
 		return 0;
 	else
