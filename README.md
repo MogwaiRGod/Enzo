@@ -21,5 +21,5 @@ Pour un nombre entier entré par l'utilisateur, renvoie la somme des chiffres qu
 ## exo5_v_courte.sh
 Fonction qui détermine si deux chaînes sont des anagrammes (= trie les caractères des chaînes par ordre alphabétique puis vérifie que les deux chaînes obtenues sont identiques).
 
-## exo5.sh
-Même chose mais passe par plusieurs étapes.
+## exo6.sh
+Aplication qui affiche si un nombre entré par l'utilisateur est premier ou non.
