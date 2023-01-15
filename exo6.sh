@@ -41,7 +41,7 @@ function clearInterface () {
 	return 5;
 }
 
-interface () {
+function interface () {
 	echo -e  "Voyons si votre nombre est premier.\nChamp vide pour quitter.\n"
 	read -p "Entrer votre nombre (entier positif) >>	" input;
 
