@@ -2,7 +2,7 @@
 
 ################ UTILISATION
 # Application qui affiche le nombre de voyelles d'une chaîne entrée par l utilisateur
-## /!\ NE COMPTE PAS LES VOYELLES AVEC DIACRITIQUES COMME ETANT DE VOYELLES /!\
+## /!\ NE COMPTE PAS LES VOYELLES AVEC DIACRITIQUES COMME ETANT DES VOYELLES /!\
 ### Touche (ENTREE) (=entrée vide) pour quitter l'application
 
 
@@ -35,8 +35,7 @@ function interface () {
 		afficherNombreVoyelles $input;
 		return 0;
 	fi
-
-	echo "etape3";
+	
 	return 2;
 }
 
