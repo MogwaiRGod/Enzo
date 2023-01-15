@@ -3,9 +3,16 @@
 #vérifie l'entrée de l utilisateur
 function validiteEntree () {
 	#	0-> nombre entier 1-> n importe quoi d'autre
-	[[ $1 =~ ^[^[:digit:]*]$ ]] &&  return 1 || return 0; #### /!\ erreur si flottants; valide même si commence par un autre caractère que chiffre; 
-									######### ne retourne rien si négatif;
-								##### erreur si autre caractère après chiffre
+	nombre=$1;
+	# vérifie que l'entrée est un nombre
+	[[ $(echo $nombre | grep [^[:digit:]]) =~ [^[:blank:]] ]] && return 5;
+	
+	#si oui, alors vérifie que ce nombre est positif
+	if [ $nombre -lt 0 ]; then
+		return 1;
+	else
+		return 0;
+	fi
 	return 2;
 }
 
@@ -27,11 +34,12 @@ function interface () {
 
 	validiteEntree $input;
 	#si la valeur est invalide
-	if [[ $? = 1 ]]; then
+	if [[ $? != 0 ]]; then
 		echo "Valeur invalide"; sleep 1; interface;
 	else
 		afficherNombres $input;
 	fi
+	return 4;
 }
 
 
