@@ -3,9 +3,12 @@
 ### UTILISATION
 ## Appuyer sur (ENTREE) (champ vide) pour quitter l'interface
 
-## pour savoir si deux chaînes sont des anagrammes, il suffit de leur enlever leurs caractèes spéciaux, ponctuation et chiffres afin de ne garder que les lettres
+### FONCTIONNEMENT
+## pour savoir si deux chaînes sont des anagrammes, il suffit de leur enlever leurs caractères spéciaux, ponctuation et chiffres afin de ne garder que les lettres
 ## puis de trier toutes leurs lettres par ordre alphabétique.
 ## Si les chaînes obtenues sont identiques, alors ce sont bien des anagrammes.
+
+
 pas_anag="Ce ne sont pas des anagrammes.\n"
 
 function verifAnag () {
@@ -20,12 +23,12 @@ function verifAnag () {
 function interface () {
 	chaine1=0; chaine2=0;
 	while [[ $chaine1 =~ [^[:blank:]] || $chaine2 =~ [^[:blank:]] ]]; do
-		echo -e  "Regardons si vos chaînes sont des anagrammes.\n"
+		echo -e  "Regardons si vos chaînes sont des anagrammes.\nChamp vide pour quitter.\n"
 
 		read -p "Entrer votre première chaîne >>>	" chaine1;
-		[[ $chaine1 = "" ]] && exit 0;
+		[[ -z $chaine1 ]] && exit 0;
 		read -p "Entrer votre seconde chaîne >>>	" chaine2;
-		[[ $chaine2 = "" ]] && exit 0;
+		[[ -z $chaine2 ]] && exit 0;
 
 		#par définition, si les chaines sont identiques, ce ne sont pas des anagrammes
 		if [[ $chaine1 == $chaine2 ]]; then

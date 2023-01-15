@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ### UTILISATION
+# Application qui affiche le plus grand nombre d'un tableau d entiers entrés par l utilisateur
 ## Entrer les nombres les uns après les autres; appuyer sur entrée pour valider chaque item
 ## On peut aussi les entrer dans la même ligne si on les sépare d'un espace
 ## Entrer (T) pour valider le tableau
@@ -19,8 +20,8 @@ function validiteEntree () {
 
 	#	0-> nombre entier positif ou négatif  1-> n importe quoi d'autre
 
-	tmp=$(echo $1 | grep [[:alpha:]]);
-	if [[  $1 =~ ^["-"?[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
+	tmp=$(echo $1 | grep [^[:digit:]^\-]);
+	if [[  $1 =~ [[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
 		[[ $tmp != "" ]] && return 1;
 		return 0;
 	else
@@ -41,7 +42,7 @@ function plusGdNbTab () {
 function verifTab () {
 	local -n tab=$1;
 	if [[ ${#tab[@]} = 0 ]]; then
-		echo "Le tableau est vide."; sleep 1;
+		echo "Le tableau est vide."; sleep 1; clear;
 		return 1;
 	else
 		return 0;
@@ -53,7 +54,7 @@ function verifTab () {
 function interface () {
 	initVariables;
 
-	echo "Entrer un par un les nombres de votre tableau";
+	echo "Entrer un par un les nombres de votre tableau. (T) pour valider. Champ vide pour quitter.";
 
 	while !  [[ $input =~ [Tt] ]]; do
 		read -p "Entrer un nombre entier >>>	" input;
@@ -75,7 +76,7 @@ function interface () {
 
 	# si le tableau est validé mais est vide -> renvoyer une erreur
 	verifTab tab_uti;
-	[[ $? = 1 ]] && interface || plusGdNbTab tab_uti; echo $plus_grand;
+	[[ $? = 1 ]] && interface || plusGdNbTab tab_uti; echo -e "Le plus grand nombre du tableau est : "$plus_grand"\n";
 
 }
 

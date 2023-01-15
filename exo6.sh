@@ -3,9 +3,7 @@
 ###	UTILISATION
 # Entrer un nombre pour savoir s'il est premier ou non
 # Ce nombre doit être un entier positif réel
-
-
-
+# Champ vide pour quitter
 
 
 # fonction qui vérifie l'entrée utilisateur selon les conditions ci-dessus
@@ -15,7 +13,7 @@ function verifNb () {
 	return 4;
 }
 
-
+### FONCTIONNEMENT
 # nous allons chercher le plus petit diviseur du nombre entré par l'utilisateur (il suffit qu il ait un diviseur autre que lui-même et 1 pour ne pas
 # être premier).
 # Pour cela, nous allons tester tous les nombres à partir de 2, puis uniquement les nombres pairs : en effet, s il est divisible par 2, il n'est pas premier,
@@ -43,8 +41,11 @@ function clearInterface () {
 }
 
 interface () {
-	echo "Voyons si votre nombre est premier."
+	echo -e  "Voyons si votre nombre est premier.\nChamp vide pour quitter.\n"
 	read -p "Entrer votre nombre (entier positif) >>	" input;
+
+	[[ -z $input ]] && exit 0;
+
 	verifNb $input;
 	if [[ $? == 1 ]]; then
 		echo "Entrée invalide.";

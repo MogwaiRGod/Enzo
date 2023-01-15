@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ### UTILISATION
+# Application qui affiche la somme des chiffres d'un nombre entré par l utilisateur
 ## Appuyer sur (ENTREE) (champ vide) pour quitter l'interface
 
 
@@ -26,16 +27,17 @@ function sommeChiffres () {
 function interface () {
 	input=0;
 	while [[ $input =~ [^[:blank:]] ]]; do
+		echo -e "Calculons la somme des chiffres qui composent votre nombre entier.\n"
 		read -p "Entrer un nombre entier >>>	" input;
 
-		[[ $input = "" ]] && exit 0;
+		[[ -z $input ]] && exit 0;
 
 		validiteEntree $input;
 		if [[ $? = 1 ]]; then
 			echo "Valeur invalide"; sleep 1; continue;
 		fi
 		sommeChiffres $input;
-		echo $total;
+		echo -e "La sommes des chiffres de votre nombre est : "$total"\n";
 	done
 	return 2;
 }
