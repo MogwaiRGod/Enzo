@@ -17,11 +17,9 @@ function initVariables (){
 
 #vérifie l'entrée de l utilisateur // peut-être un nombre négatif
 function validiteEntree () {
-
 	#	0-> nombre entier positif ou négatif  1-> n importe quoi d'autre
-
 	tmp=$(echo $1 | grep [^[:digit:]^\-]);
-	if [[  $1 =~ [[:digit:]] ]]; then #####" ERREURS : accepte les nombres flottants ; si séparés d'un espace, accepte plusieurs nombres (pas grave mais ce n est pas censé faire ça)
+	if [[  $1 =~ [[:digit:]] ]]; then
 		[[ $tmp != "" ]] && return 1;
 		return 0;
 	else
