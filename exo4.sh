@@ -4,8 +4,6 @@
 # Application qui affiche la somme des chiffres d'un nombre entré par l utilisateur
 ## Appuyer sur (ENTREE) (champ vide) pour quitter l'interface
 
-
-
 #vérifie l'entrée de l utilisateur 
 function validiteEntree () {
 	# 0-> nombre entier positif  1-> n importe quoi d'autre
