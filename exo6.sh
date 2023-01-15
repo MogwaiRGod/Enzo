@@ -30,6 +30,7 @@ function premier (){
 	for (( i=2; i <= max; i++ )); do
 		modulo=$(($1%$i));
 		[[ $modulo = 0 ]] && return 1;
+		[[ $i > 2 ]] && ((i++)); #à partir de 3, on incrémente de 2 car on ne veut plus tester les nombres pairs 
 	done
 	return 0;
 }
