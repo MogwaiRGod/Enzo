@@ -8,9 +8,10 @@
 ## puis de trier toutes leurs lettres par ordre alphabétique.
 ## Si les chaînes obtenues sont identiques, alors ce sont bien des anagrammes.
 
-
+# variables globales
 pas_anag="Ce ne sont pas des anagrammes.\n"
 
+# fonction qui évalue si 2 chaînes sont des anagrammes
 function verifAnag () {
 	declare -a tab;
 	for i in "$@"; do
@@ -36,7 +37,7 @@ function interface () {
 			interface;
 		fi
 
-
+		# on enlève les espaces avant afin d'utiliser chaque chaîne comme un seul argument
 		chaine1=$(echo $chaine1 |sed -e 's.[[:space:]]..g');
 		chaine2=$(echo $chaine2 |sed -e 's.[[:space:]]..g');
 
